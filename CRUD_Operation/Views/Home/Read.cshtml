@@ -1,0 +1,46 @@
+﻿@model List<CRUD_Operation.Context.Student>
+
+<style>
+    .table {
+        font-family: 'Times New Roman';
+        font-size: 16px;
+    }
+    .thead-dark {
+        font-size: 18px;
+    }
+</style>
+
+@{
+    ViewBag.Title = "Read Operation";
+}
+
+<h2>All Registered Student.</h2><hr />
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Student Id</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Mobile Number</th>
+            <th scope="col">Email ID</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th scope="row">@item.StudentId</th>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.PhoneNo</td>
+            <td>@item.Email</td>
+            <td>
+                <p>
+                    @Html.ActionLink("Update", "Update", "Home", new { id = item.StudentId }, new { @class = "btn btn-success", @style = "width: 100px" })
+                    <a href="@Url.Action("Delete", new { item.FirstName })" class="btn btn-danger" style="width: 100px;">Delete</a>
+                </p>
+            </td>
+        </tr> 
+    }
+</table>
