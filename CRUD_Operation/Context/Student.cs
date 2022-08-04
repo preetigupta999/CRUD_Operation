@@ -11,13 +11,33 @@ namespace CRUD_Operation.Context
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Student
     {
+        [Required(ErrorMessage = "Please Enter Your Student Id")]
+        [Display(Name = "Student ID")]
         public int StudentId { get; set; }
+
+        [DataType(DataType.Text)]
+        [Required(ErrorMessage = "Please Enter Your First name"), MaxLength(100)]
+        [Display(Name = "Student First Name")]
         public string FirstName { get; set; }
+
+        [DataType(DataType.Text)]
+        [MaxLength(100)]
+        [Display(Name = "Student Last Name")]
         public string LastName { get; set; }
+
+        [DataType(DataType.EmailAddress)]
+        [Required(ErrorMessage = "Please Enter Your Email ID")]
+        [Display(Name = "Email Address")]
+        [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Email is not valid.")]
         public string Email { get; set; }
+
+        [Required(ErrorMessage = "Please Enter Mobile No")]
+        [Display(Name = "Contact Number")]
+        [RegularExpression(@"^([0-9]{10})$", ErrorMessage = "Mobile number is not valid")]
         public string PhoneNo { get; set; }
     }
 }
