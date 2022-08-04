@@ -26,26 +26,39 @@ namespace CRUD_Operation.Tests.Controllers
         }
 
         [TestMethod]
-        public void About()
+        public void Create()
         {
             // Arrange
             HomeController controller = new HomeController();
 
             // Act
-            ViewResult result = controller.About() as ViewResult;
+            ViewResult result = controller.Create() as ViewResult;
 
             // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
+            Assert.IsNotNull(result);
         }
 
         [TestMethod]
-        public void Contact()
+        public void Read()
         {
             // Arrange
             HomeController controller = new HomeController();
 
             // Act
-            ViewResult result = controller.Contact() as ViewResult;
+            ViewResult result = controller.Read() as ViewResult;
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void Update()
+        {
+            // Arrange
+            HomeController controller = new HomeController();
+
+            // Act
+            ViewResult result = controller.Update(1001) as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);
