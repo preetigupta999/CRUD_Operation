@@ -1,1 +1,5 @@
-CRUD_Operation
+CRUD Operations are - 
+Create
+Read
+Update 
+Delete
